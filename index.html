@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width,initial-scale=1.0,
+      maximum-scale=1.0,user-scalable=no">
+
+<title>Little Surprise 🌷</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#171321;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Layar */
+#app{
+    width:100vw;
+    height:100vh;
+    max-width:520px;
+    position:relative;
+    overflow:hidden;
+}
+
+/* Setiap halaman mengambil 1 panel
+   dari gambar referensi 4 x 3 */
+.page{
+    position:absolute;
+    inset:0;
+    display:none;
+
+    background-image:url("design.png");
+    background-repeat:no-repeat;
+
+    /*
+      Gambar terdiri dari 4 kolom x 3 baris
+    */
+    background-size:400% 300%;
+}
+
+.page.active{
+    display:block;
+}
+
+/* PANEL 1 */
+.p1{
+    background-position:0% 0%;
+}
+
+/* PANEL 2 */
+.p2{
+    background-position:33.333% 0%;
+}
+
+/* PANEL 3 */
+.p3{
+    background-position:66.666% 0%;
+}
+
+/* PANEL 4 */
+.p4{
+    background-position:100% 0%;
+}
+
+/* PANEL 5 */
+.p5{
+    background-position:0% 50%;
+}
+
+/* PANEL 6 */
+.p6{
+    background-position:33.333% 50%;
+}
+
+/* PANEL 7 */
+.p7{
+    background-position:66.666% 50%;
+}
+
+/* PANEL 8 */
+.p8{
+    background-position:100% 50%;
+}
+
+/* PANEL 9 */
+.p9{
+    background-position:0% 100%;
+}
+
+/* PANEL 10 */
+.p10{
+    background-position:33.333% 100%;
+}
+
+/* PANEL 11 */
+.p11{
+    background-position:66.666% 100%;
+}
+
+/* PANEL 12 */
+.p12{
+    background-position:100% 100%;
+}
+
+
+/* Tombol transparan di atas gambar */
+.btn{
+    position:absolute;
+    border:0;
+    background:transparent;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+}
+
+
+/* INPUT NAMA */
+.name{
+    position:absolute;
+
+    left:10%;
+    width:80%;
+
+    top:66%;
+    height:6%;
+
+    border:none;
+    outline:none;
+
+    border-radius:30px;
+
+    background:rgba(255,248,247,.97);
+
+    text-align:center;
+
+    color:#62466a;
+    font-size:14px;
+}
+
+
+/*
+   TOMBOL PANEL 1
+*/
+.next{
+    left:27%;
+    width:46%;
+
+    top:75%;
+    height:8%;
+}
+
+
+/*
+   PANEL 2
+   4 pilihan mood
+*/
+
+.mood1{
+    left:9%;
+    top:36%;
+    width:39%;
+    height:20%;
+}
+
+.mood2{
+    left:52%;
+    top:36%;
+    width:39%;
+    height:20%;
+}
+
+.mood3{
+    left:9%;
+    top:59%;
+    width:39%;
+    height:20%;
+}
+
+.mood4{
+    left:52%;
+    top:59%;
+    width:39%;
+    height:20%;
+}
+
+
+/*
+   PANEL 3
+   pilihan quiz
+*/
+
+.quiz1{
+    left:7%;
+    width:86%;
+    top:38%;
+    height:9%;
+}
+
+.quiz2{
+    left:7%;
+    width:86%;
+    top:48%;
+    height:9%;
+}
+
+.quiz3{
+    left:7%;
+    width:86%;
+    top:58%;
+    height:9%;
+}
+
+.quiz4{
+    left:7%;
+    width:86%;
+    top:68%;
+    height:9%;
+}
+
+
+/*
+   PANEL 4
+   Lihat hadiah
+*/
+
+.gift{
+    left:28%;
+    width:44%;
+    top:82%;
+    height:8%;
+}
+
+
+/*
+   PANEL 5
+   Lanjut ke pesan terakhir
+*/
+
+.last1{
+    left:12%;
+    width:76%;
+    top:90%;
+    height:8%;
+}
+
+
+/*
+   PANEL 6
+   Apa?
+*/
+
+.what{
+    left:29%;
+    width:42%;
+    top:82%;
+    height:9%;
+}
+
+
+/*
+   PANEL 7
+   Kejutan terakhir
+*/
+
+.last2{
+    left:11%;
+    width:78%;
+    top:89%;
+    height:8%;
+}
+
+
+/*
+   PANEL 8
+   Lihat apakah kamu senyum
+*/
+
+.smile{
+    left:10%;
+    width:80%;
+    top:87%;
+    height:9%;
+}
+
+
+/*
+   PANEL 9
+   Iya / Dikit
+*/
+
+.yes{
+    left:25%;
+    width:24%;
+    top:72%;
+    height:8%;
+}
+
+.little{
+    left:51%;
+    width:24%;
+    top:72%;
+    height:8%;
+}
+
+
+/*
+   PANEL 10
+   Sampai jumpa
+*/
+
+.end1{
+    left:16%;
+    width:68%;
+    top:88%;
+    height:8%;
+}
+
+
+/*
+   PANEL 11
+   Sampai ketemu
+*/
+
+.end2{
+    left:16%;
+    width:68%;
+    top:88%;
+    height:8%;
+}
+
+
+/*
+   PANEL 12
+   halaman terakhir
+*/
+</style>
+</head>
+
+
+<body>
+
+<div id="app">
+
+    <!-- PANEL 1 -->
+    <section class="page p1 active">
+
+        <input
+            id="nama"
+            class="name"
+            type="text"
+            maxlength="20"
+            placeholder="Tulis namamu di sini..."
+        >
+
+        <button
+            class="btn next"
+            onclick="next(2)">
+        </button>
+
+    </section>
+
+
+    <!-- PANEL 2 -->
+    <section class="page p2">
+
+        <button
+            class="btn mood1"
+            onclick="next(3)">
+        </button>
+
+        <button
+            class="btn mood2"
+            onclick="next(3)">
+        </button>
+
+        <button
+            class="btn mood3"
+            onclick="next(3)">
+        </button>
+
+        <button
+            class="btn mood4"
+            onclick="next(3)">
+        </button>
+
+    </section>
+
+
+    <!-- PANEL 3 -->
+    <section class="page p3">
+
+        <button
+            class="btn quiz1"
+            onclick="next(4)">
+        </button>
+
+        <button
+            class="btn quiz2"
+            onclick="next(4)">
+        </button>
+
+        <button
+            class="btn quiz3"
+            onclick="next(4)">
+        </button>
+
+        <button
+            class="btn quiz4"
+            onclick="next(4)">
+        </button>
+
+    </section>
+
+
+    <!-- PANEL 4 -->
+    <section class="page p4">
+
+        <button
+            class="btn gift"
+            onclick="next(5)">
+        </button>
+
+    </section>
+
+
+    <!-- PANEL 5 -->
+    <section class="page p5">
+
+        <button
+            class="btn last1"
+            onclick="next(6)">
+        </button>
+
+    </section>
+
+
+    <!-- PANEL 6 -->
+    <section class="page p6">
+
+        <button
+            class="btn what"
+            onclick="next(7)">
+        </button>
+
+    </section>
+
+
+    <!-- PANEL 7 -->
+    <section class="page p7">
+
+        <button
+            class="btn last2"
+            onclick="next(8)">
+        </button>
+
+    </section>
+
+
+    <!-- PANEL 8 -->
+    <section class="page p8">
+
+        <button
+            class="btn smile"
+            onclick="next(9)">
+        </button>
+
+    </section>
+
+
+    <!-- PANEL 9 -->
+    <section class="page p9">
+
+        <button
+            class="btn yes"
+            onclick="next(10)">
+        </button>
+
+        <button
+            class="btn little"
+            onclick="next(11)">
+        </button>
+
+    </section>
+
+
+    <!-- PANEL 10 -->
+    <section class="page p10">
+
+        <button
+            class="btn end1"
+            onclick="next(12)">
+        </button>
+
+    </section>
+
+
+    <!-- PANEL 11 -->
+    <section class="page p11">
+
+        <button
+            class="btn end2"
+            onclick="next(12)">
+        </button>
+
+    </section>
+
+
+    <!-- PANEL 12 -->
+    <section class="page p12"></section>
+
+</div>
+
+
+<script>
+
+function next(number){
+
+    document
+        .querySelectorAll(".page")
+        .forEach(page=>{
+            page.classList.remove("active");
+        });
+
+    document
+        .querySelector(".p"+number)
+        .classList.add("active");
+}
+
+
+/* Supaya Enter di nama juga lanjut */
+document
+    .getElementById("nama")
+    .addEventListener("keydown",function(e){
+
+        if(e.key==="Enter"){
+            next(2);
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
